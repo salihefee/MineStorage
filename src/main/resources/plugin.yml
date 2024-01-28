@@ -7,7 +7,7 @@ description: Store files in Minecraft.
 commands:
   placeblock:
     description: Generates blocks that correspond to a file's binary content.
-    usage: "Usage: /placeblock [PATH IN FILESYSTEM]" 
+    usage: "Usage: /placeblock [FILE NAME]" 
   readblock:
     description: Read the blocks starting from under the player and write them to the file specified.
     usage: "Usage: /readblock [FILE NAME]"
