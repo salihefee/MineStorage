@@ -1,0 +1,14 @@
+name: MineStorage
+version: '${project.version}'
+main: tr.com.salihefee.minestorage.MineStorage
+api-version: '1.20'
+authors: [salihefee]
+description: Store files in Minecraft.
+commands:
+  placeblock:
+    description: Generates blocks that correspond to a file's binary content.
+    usage: "Usage: /placeblock [PATH IN FILESYSTEM]" 
+  readblock:
+    description: Read the blocks starting from under the player and write them to the file specified.
+    usage: "Usage: /readblock [FILE NAME]"
+  

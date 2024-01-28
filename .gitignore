@@ -1,0 +1,10 @@
+/.idea/
+/target/classes
+/target/generated-sources
+/target/maven-archiver
+/target/maven-status
+/target/original-MineStorage-1.0-SNAPSHOT.jar
+
+dependency-reduced-pom.xml
+MineStorage.iml
+pom.xml
