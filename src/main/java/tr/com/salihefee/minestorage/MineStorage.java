@@ -12,7 +12,12 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.Listener;
 import org.bukkit.event.EventHandler;
+
 import org.jetbrains.annotations.NotNull;
+
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
 
 import java.io.*;
 import java.util.*;
@@ -75,27 +80,27 @@ public final class MineStorage extends JavaPlugin implements Listener {
             
             int cursor = 0;
 
-                boolean run = true;
-    
-                byte currentByte;
-                while (run) {
-                    for (int offsetZ = 0; run && offsetZ < size * size; offsetZ++) {
-                        for (int offsetY = size; run && offsetY > 0; offsetY--) {
-                            for (int offsetX = size; offsetX > 0; offsetX--) {
-                                try {
-                                    currentByte = fileContent[cursor];
-                                }
-                                catch (IndexOutOfBoundsException e) {
-                                    run = false;
-                                    break;
-                                }
-                                world.getBlockAt(startX + offsetX, startY + offsetY, startZ + offsetZ).setType(blockLookupTable.get(currentByte));
-                                cursor++;
-                            }   
-                        }
+            boolean run = true;
+
+            byte currentByte;
+            while (run) {
+                for (int offsetZ = 0; run && offsetZ < size * size; offsetZ++) {
+                    for (int offsetY = size; run && offsetY > 0; offsetY--) {
+                        for (int offsetX = size; offsetX > 0; offsetX--) {
+                            try {
+                                currentByte = fileContent[cursor];
+                            }
+                            catch (IndexOutOfBoundsException e) {
+                                run = false;
+                                break;
+                            }
+                            world.getBlockAt(startX + offsetX, startY + offsetY, startZ + offsetZ).setType(blockLookupTable.get(currentByte));
+                            cursor++;
+                        }   
                     }
-                    startX -= size;
                 }
+                startX -= size;
+            }
             //noinspection ConstantConditions
 
             return true;
